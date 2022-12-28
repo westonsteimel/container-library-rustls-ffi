@@ -1,7 +1,7 @@
 ARG VERSION="0.8.2"
 ARG REVISION="0c8ce8508cbc54d9d00d53f3f77af0647824dfb3"
 
-FROM ghcr.io/westonsteimel/rust-static-builder:stable as builder
+FROM docker.io/rust:alpine as builder
 
 ARG VERSION
 ARG REVISION
