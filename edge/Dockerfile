@@ -6,6 +6,13 @@ FROM docker.io/rust:alpine as builder
 ARG VERSION
 ARG REVISION
 
+RUN apk update && apk add --no-cache \
+    git \
+    ca-certificates \
+    build-base \
+    musl-utils \
+    musl-dev
+
 RUN git clone --branch "${VERSION}" https://github.com/rustls/rustls-ffi /build/rustls-ffi \
     && cd /build/rustls-ffi \
     && git reset --hard "${REVISION}" \
