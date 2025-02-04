@@ -1,7 +1,7 @@
 ARG VERSION="0.14.1"
 ARG REVISION="2014e6154074ba66c0023a683b27fdae93fbeabb"
 
-FROM docker.io/rust:alpine as builder
+FROM docker.io/rust:alpine AS builder
 
 ARG VERSION
 ARG REVISION
