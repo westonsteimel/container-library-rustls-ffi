@@ -8,10 +8,12 @@ ARG REVISION
 
 RUN apk update && apk add --no-cache \
     git \
-    ca-certificates \
+    ca-certificates-bundle \
     build-base \
+    busybox \
     musl-utils \
-    musl-dev
+    musl-dev \
+    openssl-dev
 
 RUN cargo install \
     cargo-auditable \
