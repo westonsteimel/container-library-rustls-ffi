@@ -13,12 +13,13 @@ RUN apk update && apk add --no-cache \
     musl-utils \
     musl-dev
 
+RUN cargo install cargo-auditable
+
 RUN git clone --branch "${VERSION}" https://github.com/rustls/rustls-ffi /build/rustls-ffi \
     && cd /build/rustls-ffi \
     && git reset --hard "${REVISION}" \
-    && cargo install cbindgen \
-    && make \
-    && make DESTDIR=/build/artifacts/rustls-ffi/ install
+    && cargo auditable capi build --release \
+    && cargo auditable capi install --prefix=/usr --destdir "/build/artifacts/rustls-ffi/"
 
 FROM scratch
 
