@@ -13,7 +13,11 @@ RUN apk update && apk add --no-cache \
     busybox \
     musl-utils \
     musl-dev \
-    openssl-dev
+    openssl-dev>3 \
+    libssh2-dev \
+    libgit2-dev \
+    curl-dev \
+    zlib-dev
 
 RUN cargo install \
     cargo-auditable \
