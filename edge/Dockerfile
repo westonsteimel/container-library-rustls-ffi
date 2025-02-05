@@ -13,7 +13,9 @@ RUN apk update && apk add --no-cache \
     musl-utils \
     musl-dev
 
-RUN cargo install cargo-auditable
+RUN cargo install \
+    cargo-auditable \
+    cargo-c
 
 RUN git clone --branch "${VERSION}" https://github.com/rustls/rustls-ffi /build/rustls-ffi \
     && cd /build/rustls-ffi \
